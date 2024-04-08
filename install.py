@@ -12,15 +12,16 @@ os.system("cp {}/icons/logo.png ~/.local/share/icons/warp_gui.png".format(cur_pa
 desktop_file = '{}/.local/share/applications/warp-gui.desktop'.format(Path.home())
 
 file = open(desktop_file, 'w+')
-file.write('''[Desktop Entry]
+file.write(f'''[Desktop Entry]
 Name=Warp Cloudflare 
 Version=1.0
 Comment=A gui app base on warp-cli for linux
-Exec=python3 {}/main.py
+Exec=/bin/sh {cur_path}/main.sh
 Icon=warp_gui
 Terminal=false
+Path={cur_path}
 Type=Application
-'''.format(cur_path))
+''')
 print('Desktop file created at "{}"'.format(desktop_file))
 
 
